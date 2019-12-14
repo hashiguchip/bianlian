@@ -1,31 +1,39 @@
 import { minMaxZeroOne } from '../util/math';
 
-export const ACTION_TYPE = {
-    FadeOutAndFadeIn: Symbol('fadeOutAndFadeIn'),
-    FOO: Symbol('foo'),
-};
+export enum ACTION_TYPE {
+    FadeOutAndFadeIn,
+    FOO,
+}
 
-export const DIRECTION_TYPE = {
-    RIGHT: Symbol('right'),
-    LEFT: Symbol('left'),
-};
+export enum DIRECTION_TYPE {
+    RIGHT,
+    LEFT,
+}
+
+interface IAnimationParams {
+    duration: number;
+    easing: string;
+    action: ACTION_TYPE;
+    direction: DIRECTION_TYPE;
+}
 
 export class AnimationHandler {
+    element: HTMLElement;
+    progress: boolean;
+    static defaultParams: IAnimationParams = {
+        duration: 1000,
+        easing: 'linear',
+        action: ACTION_TYPE.FadeOutAndFadeIn,
+        direction: DIRECTION_TYPE.RIGHT,
+    };
     constructor(element) {
         this.progress = false;
         this.element = element;
-        // 初期値
-        this.DEFAULT_PARAMS = {
-            duration: 1000,
-            easing: 'linear',
-            action: ACTION_TYPE.FadeOutAndFadeIn,
-            direction: DIRECTION_TYPE.RIGHT,
-        };
     }
 
     // 引数の管理
-    paramsProcessor(params) {
-        const paramsObj = { ...this.DEFAULT_PARAMS };
+    paramsProcessor(params: Partial<IAnimationParams>): IAnimationParams {
+        const paramsObj = { ...AnimationHandler.defaultParams };
         if (params.duration) paramsObj.duration = params.duration;
         if (params.easing) paramsObj.easing = params.easing;
         if (params.action) paramsObj.action = params.action;
@@ -47,7 +55,7 @@ export class AnimationHandler {
         const step = timestamp => {
             if (!start) start = timestamp;
             const progressTime = timestamp - start;
-            const percentage = this.getPercentage(progressTime, currentParams.duration);
+            const percentage = AnimationHandler.getPercentage(progressTime, currentParams.duration);
             // element.style.transform = `translate3d(-${progressTime / 2}px, 0, -${progressTime / 10}px)`;
             // 一旦Z軸のことは難しいので忘れる
             // 折り返すので200
