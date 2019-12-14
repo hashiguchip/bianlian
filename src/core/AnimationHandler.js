@@ -1,4 +1,5 @@
 import { minMaxZeroOne } from '../util/math';
+
 export const ACTION_TYPE = {
     FadeOutAndFadeIn: Symbol('fadeOutAndFadeIn'),
     FOO: Symbol('foo'),
@@ -21,6 +22,7 @@ export class AnimationHandler {
             direction: DIRECTION_TYPE.RIGHT,
         };
     }
+
     // 引数の管理
     paramsProcessor(params) {
         const paramsObj = { ...this.DEFAULT_PARAMS };
@@ -33,16 +35,16 @@ export class AnimationHandler {
 
     // todo: math to better more
     // todo 0-1 range
-    getPercentage(current, goal) {
+    static getPercentage(current, goal) {
         return minMaxZeroOne(current / goal);
     }
 
     start(params) {
         const currentParams = this.paramsProcessor(params);
-        const element = this.element;
+        const { element } = this;
         let start = null;
         // 自分自身を引数に
-        const step = function(timestamp) {
+        const step = timestamp => {
             if (!start) start = timestamp;
             const progressTime = timestamp - start;
             const percentage = this.getPercentage(progressTime, currentParams.duration);
@@ -73,10 +75,9 @@ export class AnimationHandler {
         };
         window.requestAnimationFrame(step.bind(this));
     }
-    pause() {
-        // TODO: W
-        // window.cancelAnimationFrame(step);
-    }
+
+    // ../util/math
+
     destroy() {
         this.element.style.transform = null;
     }
