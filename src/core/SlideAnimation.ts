@@ -1,8 +1,8 @@
-import { AnimationHandler, ACTION_TYPE, DIRECTION_TYPE } from './AnimationHandler';
+import { Animation, ACTION_TYPE, DIRECTION_TYPE, AnimationParams } from './Animation';
 
-export class SlideAnimation extends AnimationHandler {
-    constructor(element) {
-        super(element);
+export class SlideAnimation extends Animation {
+    constructor(element, params: Partial<AnimationParams>) {
+        super(element, params);
     }
 
     prev(): void {

@@ -1,5 +1,6 @@
 import { minMaxZeroOne } from '../util/math';
 import { StopWatch } from '../modules/StopWatch';
+import { EasingLibrary } from '../util/easing';
 
 export enum ACTION_TYPE {
     FadeOutAndFadeIn,
@@ -11,17 +12,18 @@ export enum DIRECTION_TYPE {
     LEFT,
 }
 
-interface AnimationParams {
+export interface AnimationParams {
     duration: number;
-    easing: string;
+    easing: keyof EasingLibrary;
     action: ACTION_TYPE;
     direction: DIRECTION_TYPE;
 }
 
-export class AnimationHandler {
+export class Animation {
     element: HTMLElement;
 
     progress: boolean;
+    easing: keyof EasingLibrary;
 
     stopWatch = new StopWatch();
 
@@ -32,14 +34,15 @@ export class AnimationHandler {
         direction: DIRECTION_TYPE.RIGHT,
     };
 
-    constructor(element) {
+    constructor(element: Animation['element'], params: Partial<AnimationParams>) {
         this.progress = false;
         this.element = element;
+        if (params.easing) this.easing = params.easing;
     }
 
     // 引数の管理
     paramsProcessor(params: Partial<AnimationParams>): AnimationParams {
-        const paramsObj = { ...AnimationHandler.defaultParams };
+        const paramsObj = { ...Animation.defaultParams };
         if (params.duration) paramsObj.duration = params.duration;
         if (params.easing) paramsObj.easing = params.easing;
         if (params.action) paramsObj.action = params.action;
@@ -62,7 +65,9 @@ export class AnimationHandler {
         const step = (timestamp: number): void => {
             if (!start) start = timestamp;
             const progressTime = timestamp - start;
-            const percentage = AnimationHandler.getPercentage(progressTime, currentParams.duration);
+            const percentage = EasingLibrary[this.easing](
+                Animation.getPercentage(progressTime, currentParams.duration)
+            );
             // element.style.transform = `translate3d(-${progressTime / 2}px, 0, -${progressTime / 10}px)`;
             // 一旦Z軸のことは難しいので忘れる
             // 折り返すので200

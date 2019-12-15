@@ -6,13 +6,11 @@ const next = document.querySelector('[data-next]');
 const pause = document.querySelector('[data-pause]');
 const block = document.querySelector('[data-block]');
 
-const targets = [
-    { key: 'prev', element: prev },
-    { key: 'next', element: next },
-    { key: 'pause', element: pause },
-];
+const targets = [{ key: 'prev', element: prev }, { key: 'next', element: next }, { key: 'pause', element: pause }];
 
-const slideAnimation = new SlideAnimation(block);
+const slideAnimation = new SlideAnimation(block, {
+    easing: 'easeInOutCubic',
+});
 
 targets.forEach(target => {
     target.element.addEventListener(
