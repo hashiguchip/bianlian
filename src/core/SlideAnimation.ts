@@ -1,4 +1,4 @@
-import { Animation, ACTION_TYPE, DIRECTION_TYPE, AnimationParams } from './Animation';
+import { Animation, DIRECTION_TYPE, AnimationParams } from './Animation';
 
 export class SlideAnimation extends Animation {
     constructor(element, params: Partial<AnimationParams>) {
@@ -7,16 +7,12 @@ export class SlideAnimation extends Animation {
 
     prev(): void {
         this.start({
-            duration: 1000,
-            action: ACTION_TYPE.FadeOutAndFadeIn,
             direction: DIRECTION_TYPE.LEFT,
         });
     }
 
     next(): void {
         this.start({
-            duration: 1000,
-            action: ACTION_TYPE.FadeOutAndFadeIn,
             direction: DIRECTION_TYPE.RIGHT,
         });
     }

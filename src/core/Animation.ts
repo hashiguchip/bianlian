@@ -2,11 +2,6 @@ import { minMaxZeroOne } from '../util/math';
 import { StopWatch } from '../modules/StopWatch';
 import { EasingLibrary, EasingType } from '../util/easing';
 
-export enum ACTION_TYPE {
-    FadeOutAndFadeIn,
-    FOO,
-}
-
 export enum DIRECTION_TYPE {
     RIGHT,
     LEFT,
@@ -15,7 +10,6 @@ export enum DIRECTION_TYPE {
 export interface AnimationParams {
     duration: number;
     easing: EasingType;
-    action: ACTION_TYPE;
     direction: DIRECTION_TYPE;
 }
 
@@ -23,21 +17,22 @@ export class Animation {
     element: HTMLElement;
 
     progress: boolean;
-    easing: EasingType;
 
     stopWatch = new StopWatch();
+
+    animationParams: AnimationParams;
 
     static defaultParams: AnimationParams = {
         duration: 1000,
         easing: 'linear',
-        action: ACTION_TYPE.FadeOutAndFadeIn,
         direction: DIRECTION_TYPE.RIGHT,
     };
 
     constructor(element: Animation['element'], params: Partial<AnimationParams>) {
         this.progress = false;
         this.element = element;
-        if (params.easing) this.easing = params.easing;
+        const initParams = this.paramsProcessor(params);
+        this.animationParams = initParams;
     }
 
     // 引数の管理
@@ -45,7 +40,6 @@ export class Animation {
         const paramsObj = { ...Animation.defaultParams };
         if (params.duration) paramsObj.duration = params.duration;
         if (params.easing) paramsObj.easing = params.easing;
-        if (params.action) paramsObj.action = params.action;
         if (params.direction) paramsObj.direction = params.direction;
         return paramsObj;
     }
@@ -58,14 +52,14 @@ export class Animation {
 
     start(params): void {
         this.stopWatch.play();
-        const currentParams = this.paramsProcessor(params);
+        const currentParams = { ...this.paramsProcessor(params), ...this.animationParams };
         const { element } = this;
         let start = null;
         // 自分自身を引数に
         const step = (timestamp: number): void => {
             if (!start) start = timestamp;
             const progressTime = timestamp - start;
-            const percentage = EasingLibrary[this.easing](
+            const percentage = EasingLibrary[currentParams.easing](
                 Animation.getPercentage(progressTime, currentParams.duration)
             );
             // element.style.transform = `translate3d(-${progressTime / 2}px, 0, -${progressTime / 10}px)`;

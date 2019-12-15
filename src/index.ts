@@ -10,6 +10,7 @@ const targets = [{ key: 'prev', element: prev }, { key: 'next', element: next },
 
 const slideAnimation = new SlideAnimation(block, {
     easing: 'easeInOutCubic',
+    duration: 1000,
 });
 
 targets.forEach(target => {
