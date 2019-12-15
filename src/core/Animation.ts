@@ -1,6 +1,6 @@
 import { minMaxZeroOne } from '../util/math';
 import { StopWatch } from '../modules/StopWatch';
-import { EasingLibrary } from '../util/easing';
+import { EasingLibrary, EasingType } from '../util/easing';
 
 export enum ACTION_TYPE {
     FadeOutAndFadeIn,
@@ -14,7 +14,7 @@ export enum DIRECTION_TYPE {
 
 export interface AnimationParams {
     duration: number;
-    easing: keyof EasingLibrary;
+    easing: EasingType;
     action: ACTION_TYPE;
     direction: DIRECTION_TYPE;
 }
@@ -23,7 +23,7 @@ export class Animation {
     element: HTMLElement;
 
     progress: boolean;
-    easing: keyof EasingLibrary;
+    easing: EasingType;
 
     stopWatch = new StopWatch();
 

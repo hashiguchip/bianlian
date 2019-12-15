@@ -1,4 +1,4 @@
-// export type EasingType = keyof typeof EasingLibrary;
+export type EasingType = Exclude<keyof typeof EasingLibrary, 'prototype'>;
 
 export class EasingLibrary {
     private constructor() {
@@ -68,57 +68,5 @@ export class EasingLibrary {
     // acceleration until halfway, then deceleration
     static easeInOutQuint(t): number {
         return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
-    }
-
-    easeInCubic(): number {
-        return 0;
-    }
-
-    easeInOutCubic(): number {
-        return 0;
-    }
-
-    easeInOutQuad(): number {
-        return 0;
-    }
-
-    easeInOutQuart(): number {
-        return 0;
-    }
-
-    easeInOutQuint(): number {
-        return 0;
-    }
-
-    easeInQuad(): number {
-        return 0;
-    }
-
-    easeInQuart(): number {
-        return 0;
-    }
-
-    easeInQuint(): number {
-        return 0;
-    }
-
-    easeOutCubic(): number {
-        return 0;
-    }
-
-    easeOutQuad(): number {
-        return 0;
-    }
-
-    easeOutQuart(): number {
-        return 0;
-    }
-
-    easeOutQuint(): number {
-        return 0;
-    }
-
-    linear(): number {
-        return 0;
     }
 }
