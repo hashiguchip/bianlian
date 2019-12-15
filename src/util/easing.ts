@@ -1,54 +1,70 @@
-export default {
+export class EasingLibrary {
+    private constructor() {
+        /* must not instantiate */
+    }
+
     // no easing, no acceleration
-    linear(t) {
+    static linear(t): number {
         return t;
-    },
+    }
+
     // accelerating from zero velocity
-    easeInQuad(t) {
+    static easeInQuad(t): number {
         return t * t;
-    },
+    }
+
     // decelerating to zero velocity
-    easeOutQuad(t) {
+    static easeOutQuad(t): number {
         return t * (2 - t);
-    },
+    }
+
     // acceleration until halfway, then deceleration
-    easeInOutQuad(t) {
+    static easeInOutQuad(t): number {
         return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    },
+    }
+
     // accelerating from zero velocity
-    easeInCubic(t) {
+    static easeInCubic(t): number {
         return t * t * t;
-    },
+    }
+
     // decelerating to zero velocity
-    easeOutCubic(t) {
+    static easeOutCubic(t): number {
         return --t * t * t + 1;
-    },
+    }
+
     // acceleration until halfway, then deceleration
-    easeInOutCubic(t) {
+    static easeInOutCubic(t): number {
         return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    },
+    }
+
     // accelerating from zero velocity
-    easeInQuart(t) {
+    static easeInQuart(t): number {
         return t * t * t * t;
-    },
+    }
+
     // decelerating to zero velocity
-    easeOutQuart(t) {
+    static easeOutQuart(t): number {
         return 1 - --t * t * t * t;
-    },
+    }
+
     // acceleration until halfway, then deceleration
-    easeInOutQuart(t) {
+    static easeInOutQuart(t): number {
         return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
-    },
+    }
+
     // accelerating from zero velocity
-    easeInQuint(t) {
+    static easeInQuint(t): number {
         return t * t * t * t * t;
-    },
+    }
+
     // decelerating to zero velocity
-    easeOutQuint(t) {
+    static easeOutQuint(t): number {
         return 1 + --t * t * t * t * t;
-    },
+    }
+
     // acceleration until halfway, then deceleration
-    easeInOutQuint(t) {
+    static easeInOutQuint(t): number {
         return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
-    },
-};
+    }
+}
