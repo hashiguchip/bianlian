@@ -6,14 +6,18 @@ const next = document.querySelector('[data-next]');
 const pause = document.querySelector('[data-pause]');
 const block = document.querySelector('[data-block]');
 
-const targets = [{ key: 'prev', element: prev }, { key: 'next', element: next }, { key: 'pause', element: pause }];
+const targets = [
+    { key: 'prev', element: prev },
+    { key: 'next', element: next },
+    { key: 'pause', element: pause },
+];
 
 const slideAnimation = new SlideAnimation(block);
 
-targets.forEach(function(target) {
+targets.forEach(target => {
     target.element.addEventListener(
         'click',
-        function() {
+        () => {
             slideAnimation[target.key]();
         },
         false

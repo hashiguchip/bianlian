@@ -4,7 +4,8 @@ export class SlideAnimation extends AnimationHandler {
     constructor(element) {
         super(element);
     }
-    prev() {
+
+    prev(): void {
         this.start({
             duration: 1000,
             action: ACTION_TYPE.FadeOutAndFadeIn,
@@ -12,7 +13,7 @@ export class SlideAnimation extends AnimationHandler {
         });
     }
 
-    next() {
+    next(): void {
         this.start({
             duration: 1000,
             action: ACTION_TYPE.FadeOutAndFadeIn,

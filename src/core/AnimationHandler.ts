@@ -11,7 +11,7 @@ export enum DIRECTION_TYPE {
     LEFT,
 }
 
-interface IAnimationParams {
+interface AnimationParams {
     duration: number;
     easing: string;
     action: ACTION_TYPE;
@@ -20,21 +20,25 @@ interface IAnimationParams {
 
 export class AnimationHandler {
     element: HTMLElement;
+
     progress: boolean;
+
     stopWatch = new StopWatch();
-    static defaultParams: IAnimationParams = {
+
+    static defaultParams: AnimationParams = {
         duration: 1000,
         easing: 'linear',
         action: ACTION_TYPE.FadeOutAndFadeIn,
         direction: DIRECTION_TYPE.RIGHT,
     };
+
     constructor(element) {
         this.progress = false;
         this.element = element;
     }
 
     // 引数の管理
-    paramsProcessor(params: Partial<IAnimationParams>): IAnimationParams {
+    paramsProcessor(params: Partial<AnimationParams>): AnimationParams {
         const paramsObj = { ...AnimationHandler.defaultParams };
         if (params.duration) paramsObj.duration = params.duration;
         if (params.easing) paramsObj.easing = params.easing;
@@ -45,17 +49,17 @@ export class AnimationHandler {
 
     // todo: math to better more
     // todo 0-1 range
-    static getPercentage(current, goal) {
+    static getPercentage(current, goal): number {
         return minMaxZeroOne(current / goal);
     }
 
-    start(params) {
+    start(params): void {
         this.stopWatch.play();
         const currentParams = this.paramsProcessor(params);
         const { element } = this;
         let start = null;
         // 自分自身を引数に
-        const step = timestamp => {
+        const step = (timestamp: number): void => {
             if (!start) start = timestamp;
             const progressTime = timestamp - start;
             const percentage = AnimationHandler.getPercentage(progressTime, currentParams.duration);
@@ -87,15 +91,14 @@ export class AnimationHandler {
         window.requestAnimationFrame(step.bind(this));
     }
 
-    pause() {
+    pause(): void {
         this.stopWatch.pause();
-        const aaa = this.stopWatch.getElapsedTime();
-        console.log(aaa);
+        // this.stopWatch.getElapsedTime();
     }
 
     // ../util/math
 
-    destroy() {
+    destroy(): void {
         this.element.style.transform = null;
     }
 }
