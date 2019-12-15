@@ -3,10 +3,10 @@ import { SlideAnimation } from './core/SlideAnimation';
 
 const prev = document.querySelector('[data-prev]');
 const next = document.querySelector('[data-next]');
-const slide = document.querySelector('[data-slide]');
+const pause = document.querySelector('[data-pause]');
 const block = document.querySelector('[data-block]');
 
-const targets = [{ key: 'prev', element: prev }, { key: 'next', element: next }];
+const targets = [{ key: 'prev', element: prev }, { key: 'next', element: next }, { key: 'pause', element: pause }];
 
 const slideAnimation = new SlideAnimation(block);
 

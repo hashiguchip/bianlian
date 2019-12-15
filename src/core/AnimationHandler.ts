@@ -1,4 +1,5 @@
 import { minMaxZeroOne } from '../util/math';
+import { StopWatch } from '../modules/StopWatch';
 
 export enum ACTION_TYPE {
     FadeOutAndFadeIn,
@@ -20,6 +21,7 @@ interface IAnimationParams {
 export class AnimationHandler {
     element: HTMLElement;
     progress: boolean;
+    stopWatch = new StopWatch();
     static defaultParams: IAnimationParams = {
         duration: 1000,
         easing: 'linear',
@@ -48,6 +50,7 @@ export class AnimationHandler {
     }
 
     start(params) {
+        this.stopWatch.play();
         const currentParams = this.paramsProcessor(params);
         const { element } = this;
         let start = null;
@@ -82,6 +85,12 @@ export class AnimationHandler {
             }
         };
         window.requestAnimationFrame(step.bind(this));
+    }
+
+    pause() {
+        this.stopWatch.pause();
+        const aaa = this.stopWatch.getElapsedTime();
+        console.log(aaa);
     }
 
     // ../util/math

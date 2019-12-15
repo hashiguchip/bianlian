@@ -1,15 +1,17 @@
+import { convertMsToSeconds } from './util/DateTime';
+
 interface ITimerHistory {
     start: number;
     stop: number;
 }
 export class StopWatch {
     static readonly default = 0;
-    private playing = true;
+    private playing = false;
     private start: number;
     private history: ITimerHistory[] = [];
     public play() {
         if (this.playing) return;
-        this.playing = false;
+        this.playing = true;
         this.start = StopWatch.getNow();
     }
     public pause() {
@@ -22,9 +24,11 @@ export class StopWatch {
         if (!this.history) {
             return StopWatch.default;
         }
-        return this.history.reduce<number>((accumulation: number, currentValue: ITimerHistory): number => {
-            return accumulation + currentValue.stop - currentValue.start;
-        }, 0);
+        return convertMsToSeconds(
+            this.history.reduce<number>((accumulation: number, currentValue: ITimerHistory): number => {
+                return accumulation + currentValue.stop - currentValue.start;
+            }, 0)
+        );
     }
     static getNow(): number {
         return new Date().getTime();
