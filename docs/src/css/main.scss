@@ -3,7 +3,6 @@
     display: flex;
     &__sidebar {
         flex: 1;
-        background: rgba(213, 0, 14, 0.13);
     }
     &__main {
         flex: 3;
@@ -14,9 +13,14 @@
 .header {
     width: 100%;
     background: #9a0014;
+    &__title {
+        padding: 20px 20px;
+        fill: #586f56;
+        // background-image: url('../img/bianlian.svg');
+    }
 }
 .footer {
-    height: 100%;
+    width: 100%;
     background: #9a0014;
 }
 
@@ -29,5 +33,43 @@
     margin-top: 50px;
     &__title {
         font-size: 24px;
+        padding: 10px;
+    }
+}
+
+.sidebar {
+    background: rgba(213, 0, 14, 0.13);
+    &__title {
+        padding: 10px;
+        font-size: 24px;
+    }
+    &__list {
+        padding: 24px;
+    }
+}
+
+.sidebar-item {
+    margin-top: 10px;
+}
+
+.sourcecode {
+    position: relative;
+    margin-top: 24px;
+    line-height: 1.5;
+    &__label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: whitesmoke;
+        border: solid 1px brown;
+        padding: 5px 10px;
+    }
+    &__copy {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: whitesmoke;
+        border: solid 1px brown;
+        padding: 5px;
     }
 }

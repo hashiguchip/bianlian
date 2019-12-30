@@ -4,22 +4,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Content-Style-Type" content="text/css" />
         <meta http-equiv="Content-Script-Type" content="text/javascript" />
-        <title>todo</title>
+        <title>Bianlian</title>
         <meta name="keywords" content="todo" />
         <meta name="description" content="todo" />
         <meta name="viewport" content="width=device-width" />
     </head>
     <body>
         <header class="header">
-            <h1>BieanLian</h1>
+            <h1><img src="img/bianlian.svg" class="header__title" /></h1>
         </header>
         <div class="content">
-            <nav class="content__sidebar">
-                <div>todo</div>
-                <div>
+            <nav class="content__sidebar sidebar">
+                <div class="sidebar__title">Menu</div>
+                <div class="sidebar__list">
                     <ul>
-                        <li>Overview</li>
-                        <li>Demo</li>
+                        <li class="sidebar-item"><a href="#overview">Overview</a></li>
+                        <li class="sidebar-item"><a href="#demo">Demo</a></li>
                     </ul>
                 </div>
             </nav>
@@ -29,9 +29,9 @@
                     <div class="section__description">biarn lian is JavaScript Animation Library</div>
                 </div>
                 <div class="section">
-                    <div class="section__title">Demo</div>
+                    <div class="section__title" id="overview">Demo</div>
                     <div class="section__contents">
-                        <div class="demo">
+                        <div class="demo" id="demo">
                             <div content="slide">
                                 <div class="block"></div>
                             </div>
@@ -43,12 +43,14 @@
                             </div>
                         </div>
                         <div class="sourcecode">
+                            <div class="sourcecode__label">code</div>
+                            <div class="sourcecode__copy">copy</div>
                             <pre>
                                 <code class="javascript">
                                 const slideAnimation = new SlideAnimation({
-                                element: block as HTMLElement,
-                                easing: 'easeInOutCubic',
-                                duration: 1000,
+                                    element: block as HTMLElement,
+                                    easing: 'easeInOutCubic',
+                                    duration: 1000,
                                 });
                                 </code>
                             </pre>
