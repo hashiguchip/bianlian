@@ -1,0 +1,33 @@
+.content {
+    width: 100%;
+    display: flex;
+    &__sidebar {
+        flex: 1;
+        background: rgba(213, 0, 14, 0.13);
+    }
+    &__main {
+        flex: 3;
+        background: whitesmoke;
+    }
+}
+
+.header {
+    width: 100%;
+    background: #9a0014;
+}
+.footer {
+    height: 100%;
+    background: #9a0014;
+}
+
+.main {
+    min-height: 100vh; // todo:fix
+    padding: 10px;
+}
+
+.section {
+    margin-top: 50px;
+    &__title {
+        font-size: 24px;
+    }
+}
