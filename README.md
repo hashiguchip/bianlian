@@ -1,5 +1,3 @@
-# Bianlian
-
 ![Bianlian](docs/src/img/readme_title.svg 'Bianlian')
 
 ## Overview
