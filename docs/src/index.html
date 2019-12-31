@@ -11,7 +11,9 @@
     </head>
     <body>
         <header class="header">
-            <h1><img src="img/bianlian.svg" class="header__title" /></h1>
+            <a href="/">
+                <h1><img src="img/bianlian.svg" class="header__title" /></h1>
+            </a>
         </header>
         <div class="content">
             <nav class="content__sidebar sidebar">
@@ -29,7 +31,7 @@
             <main class="content__main main">
                 <div class="section">
                     <div class="section__title">Overview</div>
-                    <div class="section__description">biarn lian is JavaScript Animation Library</div>
+                    <div class="section__description">Bianlian is JavaScript Animation Library</div>
                 </div>
                 <div class="section">
                     <div class="section__title" id="overview">Demo</div>
@@ -47,7 +49,7 @@
                         </div>
                         <div class="sourcecode">
                             <div class="sourcecode__label">code</div>
-                            <div class="sourcecode__copy">copy</div>
+                            <div class="sourcecode__copy js-copy">copy</div>
                             <pre>
                                 <code class="javascript">
                                 const slideAnimation = new SlideAnimation({
@@ -67,12 +69,19 @@
                 <p class="footer-content__p">Released under the MIT License</p>
                 <p class="footer-content__p">
                     Copyright © 2019-2019
-                    <a href="https://github.com/hashiguchip" target="_blank" class="footer-content__p -a"
-                        >hashiguchip</a
-                    >
+                    <a href="https://github.com/hashiguchip" target="_blank" class="footer-content__p-a">hashiguchip</a>
                 </p>
             </div>
         </footer>
+        <div class="modal-wrapper js-modal-wrapper">
+            <div class="modal-wrapper__content modal js-modal">
+                <div class="modal__title modal-title">todo:モーダルです</div>
+                <div class="modal__description modal-description">todo:モーダル詳細・・・</div>
+                <div class="modal__footer modal-buttons">
+                    <button class="modal-buttons__close button-common js-modal-close">閉じる</button>
+                </div>
+            </div>
+        </div>
         <script src="js/main.ts"></script>
     </body>
 </html>
