@@ -20,17 +20,30 @@ modal.addEventListener('click', target => {
 modalWrapper.addEventListener('click', target => {
     page.classList.remove('-blur');
     modalWrapper.classList.remove('-active');
+    closeModal();
 });
 copyButton.addEventListener('click', target => {
     page.classList.add('-blur');
     modalWrapper.classList.add('-active');
-});
-
-copyButton.addEventListener('click', target => {
-    modalWrapper.classList.add('-active');
+    openModal();
 });
 
 modalCloseButton.addEventListener('click', target => {
     page.classList.remove('-blur');
     modalWrapper.classList.remove('-active');
+    closeModal();
 });
+
+let scrollY = 0;
+
+function openModal() {
+    scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+}
+
+function closeModal() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+}
