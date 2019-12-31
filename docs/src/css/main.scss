@@ -103,13 +103,15 @@
     position: fixed;
     top: 0;
     right: 0;
+    overflow: hidden;
+    // animation: modal-wrapper-fade-in 2s forwards;
+    justify-content: center;
+    align-items: center;
     &.-active {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        animation: modal-fade-in 0.2s;
     }
     &__content {
-        opacity: 1;
     }
 }
 
@@ -170,4 +172,30 @@
     color: #fff;
     background: #9a0014;
     border-radius: 10px;
+}
+
+.page {
+    &.-blur {
+        animation: modal-wrapper-fade-in 0.2s forwards;
+    }
+}
+
+@keyframes modal-wrapper-fade-in {
+    0% {
+        filter: blur(0px);
+    }
+
+    100% {
+        filter: blur(2px);
+    }
+}
+
+@keyframes modal-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

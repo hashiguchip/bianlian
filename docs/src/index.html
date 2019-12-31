@@ -10,47 +10,48 @@
         <meta name="viewport" content="width=device-width" />
     </head>
     <body>
-        <header class="header">
-            <a href="/">
-                <h1><img src="img/bianlian.svg" class="header__title" /></h1>
-            </a>
-        </header>
-        <div class="content">
-            <nav class="content__sidebar sidebar">
-                <div class="sidebar__title">Menu</div>
-                <div class="sidebar__list">
-                    <ul>
-                        <li class="sidebar-item"><a href="#overview">Overview</a></li>
-                        <li class="sidebar-item"><a href="#demo">Demo</a></li>
-                        <li class="sidebar-item">
-                            <a href="https://github.com/hashiguchip/bianlian" target="_blank">Repository</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <main class="content__main main">
-                <div class="section">
-                    <div class="section__title">Overview</div>
-                    <div class="section__description">Bianlian is JavaScript Animation Library</div>
-                </div>
-                <div class="section">
-                    <div class="section__title" id="overview">Demo</div>
-                    <div class="section__contents">
-                        <div class="demo" id="demo">
-                            <div content="slide">
-                                <div class="block"></div>
+        <div class="page js-page">
+            <header class="header">
+                <a href="/">
+                    <h1><img src="img/bianlian.svg" class="header__title" /></h1>
+                </a>
+            </header>
+            <div class="content">
+                <nav class="content__sidebar sidebar">
+                    <div class="sidebar__title">Menu</div>
+                    <div class="sidebar__list">
+                        <ul>
+                            <li class="sidebar-item"><a href="#overview">Overview</a></li>
+                            <li class="sidebar-item"><a href="#demo">Demo</a></li>
+                            <li class="sidebar-item">
+                                <a href="https://github.com/hashiguchip/bianlian" target="_blank">Repository</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <main class="content__main main">
+                    <div class="section">
+                        <div class="section__title">Overview</div>
+                        <div class="section__description">Bianlian is JavaScript Animation Library</div>
+                    </div>
+                    <div class="section">
+                        <div class="section__title" id="overview">Demo</div>
+                        <div class="section__contents">
+                            <div class="demo" id="demo">
+                                <div content="slide">
+                                    <div class="block"></div>
+                                </div>
+                                <div class="control">
+                                    <div>Control Button</div>
+                                    <button class="common-button" data-prev>Prev</button>
+                                    <button class="common-button" data-pause>Pause</button>
+                                    <button class="common-button" data-next>Next</button>
+                                </div>
                             </div>
-                            <div class="control">
-                                <div>Control Button</div>
-                                <button class="common-button" data-prev>Prev</button>
-                                <button class="common-button" data-pause>Pause</button>
-                                <button class="common-button" data-next>Next</button>
-                            </div>
-                        </div>
-                        <div class="sourcecode">
-                            <div class="sourcecode__label">code</div>
-                            <div class="sourcecode__copy js-copy">copy</div>
-                            <pre>
+                            <div class="sourcecode">
+                                <div class="sourcecode__label">code</div>
+                                <div class="sourcecode__copy js-copy">copy</div>
+                                <pre>
                                 <code class="javascript">
                                 const slideAnimation = new SlideAnimation({
                                     element: block as HTMLElement,
@@ -59,20 +60,23 @@
                                 });
                                 </code>
                             </pre>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
-        </div>
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="footer-content__p">Released under the MIT License</p>
-                <p class="footer-content__p">
-                    Copyright © 2019-2019
-                    <a href="https://github.com/hashiguchip" target="_blank" class="footer-content__p-a">hashiguchip</a>
-                </p>
+                </main>
             </div>
-        </footer>
+            <footer class="footer">
+                <div class="footer-content">
+                    <p class="footer-content__p">Released under the MIT License</p>
+                    <p class="footer-content__p">
+                        Copyright © 2019-2019
+                        <a href="https://github.com/hashiguchip" target="_blank" class="footer-content__p-a"
+                            >hashiguchip</a
+                        >
+                    </p>
+                </div>
+            </footer>
+        </div>
         <div class="modal-wrapper js-modal-wrapper">
             <div class="modal-wrapper__content modal js-modal">
                 <div class="modal__title modal-title">todo:モーダルです</div>
