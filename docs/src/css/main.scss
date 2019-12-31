@@ -171,6 +171,7 @@
 .page {
     min-width: 100%;
     &.-blur {
+        overflow-y: scroll;
         animation: modal-wrapper-fade-in 0.2s forwards;
     }
 }
