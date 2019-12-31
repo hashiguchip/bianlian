@@ -57,16 +57,17 @@
 .sidebar {
     background: rgba(213, 0, 14, 0.13);
     &__title {
-        padding: 10px;
+        margin-top: 25px;
+        padding: 0 10px;
         font-size: 24px;
     }
     &__list {
-        padding: 24px;
+        padding: 5px 20px;
     }
 }
 
 .sidebar-item {
-    margin-top: 10px;
+    margin-top: 20px;
     &:hover {
         font-weight: bold;
         color: $baseColor;
@@ -176,7 +177,7 @@
 }
 
 .page {
-    min-width: 100vw;
+    min-width: 100%;
     &.-blur {
         animation: modal-wrapper-fade-in 0.2s forwards;
     }
