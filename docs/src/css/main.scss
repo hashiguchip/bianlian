@@ -21,9 +21,7 @@
 .footer {
     width: 100%;
     background: $baseColor;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center();
 }
 
 .footer-content {
@@ -145,21 +143,15 @@
 }
 
 .modal-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center();
 }
 
 .modal-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center();
 }
 
 .modal-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center();
     &__close {
         width: 200px;
         height: 40px;
