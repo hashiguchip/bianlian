@@ -35,7 +35,14 @@
                         <div class="section__description">Bianlian is JavaScript Animation Library</div>
                     </div>
                     <div class="section">
+                        <div class="section__title">Feature</div>
+                        <ul>
+                            <li class="section__list">light weight</li>
+                        </ul>
+                    </div>
+                    <div class="section">
                         <div class="section__title" id="overview">Demo</div>
+                        <div class="section__description">You enjoy this demo</div>
                         <div class="section__contents">
                             <div class="demo" id="demo">
                                 <div class="slide" data-slide>
@@ -60,6 +67,19 @@
                                     easing: 'easeInOutCubic',
                                     duration: 1000,
                                 });
+                                const halfEvent = function() {
+                                    slideAnimation.element.style.background = red; // change element contents
+                                };
+                                const endEvent = function() {
+                                    console.log('end!');
+                                };
+                                prev.addEventListener(
+                                    'click',
+                                    () => {
+                                        slideAnimation.prev({ halfEvent, endEvent });
+                                    },
+                                    false
+                                );
                                 </code>
                             </pre>
                             </div>
