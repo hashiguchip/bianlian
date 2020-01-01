@@ -12,3 +12,8 @@ body {
 ul {
     list-style: none;
 }
+
+strong {
+    color: $baseColor;
+    font-weight: bold;
+}
