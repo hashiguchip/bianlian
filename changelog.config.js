@@ -24,12 +24,12 @@ module.exports = {
         },
         feat: {
             description: 'A new feature',
-            emoji: '🎸',
+            emoji: '🔼',
             value: 'feat',
         },
         fix: {
             description: 'A bug fix',
-            emoji: '🐛',
+            emoji: '🚑',
             value: 'fix',
         },
         perf: {
@@ -39,7 +39,7 @@ module.exports = {
         },
         refactor: {
             description: 'A code change that neither fixes a bug or adds a feature',
-            emoji: '💡',
+            emoji: '✨',
             value: 'refactor',
         },
         release: {
