@@ -17,3 +17,5 @@ jobs:
         echo test, and deploy your project.
     - name: GitHub Pages Deploy
       uses: maxheld83/ghpages@v0.2.1
+      env:
+        BUILD_DIR: docs/dist/
