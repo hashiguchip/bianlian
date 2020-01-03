@@ -64,24 +64,25 @@
                                 <button class="sourcecode__copy button-common js-copy">copy</button>
                                 <pre>
                                 <code class="javascript">
-                                const slideAnimation = new SlideAnimation({
-                                    element: block as HTMLElement,
-                                    easing: 'easeInOutCubic',
-                                    duration: 1000,
-                                });
-                                const halfEvent = function() {
-                                    slideAnimation.element.style.background = red; // change element contents
-                                };
-                                const endEvent = function() {
-                                    console.log('end!');
-                                };
-                                prev.addEventListener(
-                                    'click',
-                                    () => {
-                                        slideAnimation.prev({ halfEvent, endEvent });
-                                    },
-                                    false
-                                );
+const slideAnimation = new SlideAnimation({
+    element: block as HTMLElement,
+    easing: 'easeInOutCubic',
+    duration: 1000,
+});
+const halfEvent = function() {
+    // change element contents
+    slideAnimation.element.style.background = red;
+};
+const endEvent = function() {
+    console.log('end!');
+};
+prev.addEventListener(
+    'click',
+    () => {
+        slideAnimation.prev({ halfEvent, endEvent });
+    },
+    false
+);
                                 </code>
                             </pre>
                             </div>
