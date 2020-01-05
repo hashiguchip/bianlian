@@ -83,7 +83,7 @@ const slideAnimation = new SlideAnimation({
     easing: 'easeInOutCubic',
     duration: 1000,
 });
-const toggleColors = new ToggleColors(['#9a0014', 'black', 'blue']);
+const toggleColors = new ToggleColors(['#289a2e', '#9a9700', '#9a0014']);
 
 const half = function() {
     slideAnimation.element.style.background = toggleColors.getColor();
