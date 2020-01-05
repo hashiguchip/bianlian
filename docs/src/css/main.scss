@@ -55,8 +55,8 @@
     &__list {
         padding: 10px 24px;
         &::before {
-            content: '-';
-            width: 15px;
+            content: '✅';
+            width: 25px;
             display: inline-block;
         }
     }
