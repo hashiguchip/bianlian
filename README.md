@@ -8,6 +8,10 @@ JavaScript Slide Animation
 
 TBW
 
+## Demo
+
+[https://hashiguchip.github.io/bianlian#demo]()
+
 ## Documentation
 
-TBW
+[https://hashiguchip.github.io/bianlian]()
