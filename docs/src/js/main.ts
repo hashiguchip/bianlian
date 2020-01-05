@@ -5,6 +5,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 import 'highlight.js/styles/tomorrow-night-eighties.css';
 import { ToggleColors } from './util';
+import copy from 'copy-to-clipboard';
 
 import { SlideAnimation } from '../../../src/core/SlideAnimation';
 
@@ -25,9 +26,30 @@ modalWrapper.addEventListener('click', target => {
     modalWrapper.classList.remove('-active');
     closeModal();
 });
+const source = `
+const slideAnimation = new SlideAnimation({
+    element: block as HTMLElement,
+    easing: 'easeInOutCubic',
+    duration: 1000,
+});
+const halfEvent = function() {
+    // change element contents
+    slideAnimation.element.style.background = red;
+};
+const endEvent = function() {
+    console.log('end!');
+};
+prev.addEventListener(
+    'click',
+    () => {
+        slideAnimation.prev({ halfEvent, endEvent });
+    },
+    false
+);`;
 copyButton.addEventListener('click', target => {
     page.classList.add('-blur');
     modalWrapper.classList.add('-active');
+    copy(source);
     openModal();
 });
 

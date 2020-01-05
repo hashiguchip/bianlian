@@ -141,6 +141,9 @@
         left: 0;
         padding: 24px;
         font-size: 24px;
+        &.-only {
+            top: 100px;
+        }
     }
     &__description {
         position: absolute;
@@ -220,7 +223,6 @@
         margin-top: 14px;
     }
 }
-
 
 @keyframes modal-wrapper-fade-in {
     0% {
