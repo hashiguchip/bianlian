@@ -10,8 +10,8 @@ TBW
 
 ## Demo
 
-[https://hashiguchip.github.io/bianlian#demo]()
+[https://hashiguchip.github.io/bianlian#demo](https://hashiguchip.github.io/bianlian#demo)
 
 ## Documentation
 
-[https://hashiguchip.github.io/bianlian]()
+[https://hashiguchip.github.io/bianlian](https://hashiguchip.github.io/bianlian)
