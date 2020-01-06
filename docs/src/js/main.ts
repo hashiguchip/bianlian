@@ -8,6 +8,7 @@ import { ToggleColors } from './util';
 import copy from 'copy-to-clipboard';
 
 import { SlideAnimation } from '../../../src/core/SlideAnimation';
+import { touchEventConcrete } from './modules/touchEventConcrete';
 
 hljs.initHighlightingOnLoad();
 
@@ -116,3 +117,14 @@ pause.addEventListener(
     },
     false
 );
+
+const touchEvent = touchEventConcrete(block as HTMLElement, {
+    right: () => {
+        slideAnimation.next({ half, finish });
+    },
+    left: () => {
+        slideAnimation.prev({ half, finish });
+    },
+});
+
+window.addEventListener('load', touchEvent, false);
