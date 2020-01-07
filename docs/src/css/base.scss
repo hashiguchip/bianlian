@@ -1,5 +1,7 @@
 html {
+    font-family: Mark;
     box-sizing: border-box;
+    letter-spacing: -0.3;
 }
 *,
 *:before,
@@ -25,6 +27,7 @@ ul {
 
 strong {
     color: $baseColor;
+    letter-spacing: 0;
     font-weight: bold;
 }
 
