@@ -21,12 +21,37 @@ import { touchEventConcrete } from './modules/touchEventConcrete';
 hljs.initHighlightingOnLoad();
 
 const copyButton = document.querySelector('.js-copy');
+const buttons = document.getElementsByTagName('button');
 const modalCloseButton = document.querySelector('.js-modal-close');
 const modalWrapper = document.querySelector('.js-modal-wrapper') as HTMLElement;
 const modal = document.querySelector('.js-modal') as HTMLElement;
 const page = document.querySelector('.js-page') as HTMLElement;
 const overview = document.querySelector('.js-overview') as HTMLElement;
 const demo = document.querySelector('.js-demo') as HTMLElement;
+
+for (const button of buttons) {
+    button.addEventListener('mousedown', event => {
+        const element = <HTMLElement>event.target;
+        element.classList.add('-active');
+    });
+    button.addEventListener('touchstart', event => {
+        const element = <HTMLElement>event.target;
+        element.classList.add('-active');
+    });
+    // express reverberations
+    button.addEventListener('mouseup', event => {
+        const element = <HTMLElement>event.target;
+        setTimeout(function() {
+            element.classList.remove('-active');
+        }, 150);
+    });
+    button.addEventListener('touchend', event => {
+        const element = <HTMLElement>event.target;
+        setTimeout(function() {
+            element.classList.remove('-active');
+        }, 150);
+    });
+}
 
 modal.addEventListener('click', target => {
     target.stopPropagation();
