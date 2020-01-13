@@ -90,9 +90,11 @@ copyButton.addEventListener('click', target => {
 });
 
 modalCloseButton.addEventListener('click', target => {
-    page.classList.remove('-blur');
-    modalWrapper.classList.remove('-active');
-    closeModal();
+    setTimeout(function() {
+        page.classList.remove('-blur');
+        modalWrapper.classList.remove('-active');
+        closeModal();
+    }, 150);
 });
 
 let scrollY = 0;
