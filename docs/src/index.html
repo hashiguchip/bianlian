@@ -4,10 +4,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Content-Style-Type" content="text/css" />
         <meta http-equiv="Content-Script-Type" content="text/javascript" />
-        <title>Bianlian</title>
+        <title>Bianlian - A JavaScript Animation Library</title>
         <meta name="keywords" content="todo" />
         <meta name="description" content="todo" />
         <meta name="viewport" content="width=device-width" />
+        <link rel="preload" href="fonts/Mark-Medium.woff2" as="font">
     </head>
     <body>
         <div class="page js-page">
@@ -21,8 +22,8 @@
                     <div class="sidebar__title">Menu</div>
                     <div class="sidebar__list">
                         <ul>
-                            <li class="sidebar-item"><a href="#overview">Overview</a></li>
-                            <li class="sidebar-item"><a href="#demo">Demo</a></li>
+                            <li class="sidebar-item"><a href="#overview" class="js-overview">Overview</a></li>
+                            <li class="sidebar-item"><a href="#demo" class="js-demo">Demo</a></li>
                             <li class="sidebar-item">
                                 <a href="https://github.com/hashiguchip/bianlian" target="_blank">Repository</a>
                             </li>
@@ -31,7 +32,7 @@
                 </nav>
                 <main class="content__main main">
                     <div class="section">
-                        <div class="section__title">Overview</div>
+                        <div class="section__title" id="overview">Overview</div>
                         <div class="section__description">
                             Bianlian is <strong>JavaScript Animation</strong> Library
                         </div>
@@ -44,10 +45,10 @@
                         </ul>
                     </div>
                     <div class="section">
-                        <div class="section__title" id="overview">Demo</div>
+                        <div class="section__title" id="demo">Demo</div>
                         <div class="section__description">You enjoy this demo</div>
                         <div class="section__contents">
-                            <div class="demo" id="demo">
+                            <div class="demo">
                                 <div class="slide" data-slide>
                                     <div class="block" data-block></div>
                                 </div>
