@@ -89,13 +89,6 @@ copyButton.addEventListener('click', target => {
     openModal();
 });
 
-copyButton.addEventListener('click', target => {
-    page.classList.add('-blur');
-    modalWrapper.classList.add('-active');
-    copy(source);
-    openModal();
-});
-
 modalCloseButton.addEventListener('click', target => {
     page.classList.remove('-blur');
     modalWrapper.classList.remove('-active');
