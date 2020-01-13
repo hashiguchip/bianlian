@@ -1,10 +1,18 @@
 import '../css/index.scss';
 
+if (location.hash) {
+    setTimeout(function() {
+        // todo: scroll animation
+        window.scrollTo(0, 0);
+    }, 1);
+}
+
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 import 'highlight.js/styles/tomorrow-night-eighties.css';
 import { ToggleColors } from './util';
+import jump from 'jump.js';
 import copy from 'copy-to-clipboard';
 
 import { SlideAnimation } from '../../../src/core/SlideAnimation';
@@ -17,6 +25,8 @@ const modalCloseButton = document.querySelector('.js-modal-close');
 const modalWrapper = document.querySelector('.js-modal-wrapper') as HTMLElement;
 const modal = document.querySelector('.js-modal') as HTMLElement;
 const page = document.querySelector('.js-page') as HTMLElement;
+const overview = document.querySelector('.js-overview') as HTMLElement;
+const demo = document.querySelector('.js-demo') as HTMLElement;
 
 modal.addEventListener('click', target => {
     target.stopPropagation();
@@ -47,6 +57,13 @@ prev.addEventListener(
     },
     false
 );`;
+copyButton.addEventListener('click', target => {
+    page.classList.add('-blur');
+    modalWrapper.classList.add('-active');
+    copy(source);
+    openModal();
+});
+
 copyButton.addEventListener('click', target => {
     page.classList.add('-blur');
     modalWrapper.classList.add('-active');
@@ -114,6 +131,48 @@ pause.addEventListener(
     'click',
     () => {
         slideAnimation.pause();
+    },
+    false
+);
+
+const test = function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+};
+
+/**
+ * https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
+ * @param t
+ * @param b
+ * @param c
+ * @param d
+ */
+function easeOutElastic(t, b, c, d) {
+    return t == d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b;
+}
+
+overview.addEventListener(
+    'click',
+    () => {
+        jump('#overview', {
+            duration: 350,
+            offset: 0,
+            easing: easeOutElastic,
+        });
+    },
+    false
+);
+
+demo.addEventListener(
+    'click',
+    () => {
+        jump('#demo', {
+            duration: 350,
+            offset: 0,
+            easing: easeOutElastic,
+        });
     },
     false
 );
