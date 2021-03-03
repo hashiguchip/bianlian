@@ -1,0 +1,23 @@
+<!DOCTYPE ><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Style-Type" content="text/css"><meta http-equiv="Content-Script-Type" content="text/javascript"><title>Bianlian - A JavaScript Animation Library</title><meta name="keywords" content="todo"><meta name="description" content="todo"><meta name="viewport" content="width=device-width"><link rel="preload" href="Mark-Medium.c8cc2df6.woff2" as="font"><link rel="stylesheet" href="main.d43d3b8b.css"></head><body> <div class="js-page page"> <header class="header"> <a href="./"> <h1><img src="bianlian.168abff2.svg" class="header__title"></h1> </a> </header> <div class="content"> <nav class="content__sidebar sidebar"> <div class="sidebar__title">Menu</div> <div class="sidebar__list"> <ul> <li class="sidebar-item"><a href="#overview" class="js-overview">Overview</a></li> <li class="sidebar-item"><a href="#demo" class="js-demo">Demo</a></li> <li class="sidebar-item"> <a href="https://github.com/hashiguchip/bianlian" target="_blank">Repository</a> </li> </ul> </div> </nav> <main class="content__main main"> <div class="section"> <div class="section__title" id="overview">Overview</div> <div class="section__description"> Bianlian is <strong>JavaScript Animation</strong> Library </div> </div> <div class="section"> <div class="section__title">Feature</div> <ul> <li class="section__list">Light weight</li> <li class="section__list">TypeScript support</li> </ul> </div> <div class="section"> <div class="section__title" id="demo">Demo</div> <div class="section__description">You enjoy this demo</div> <div class="section__contents"> <div class="demo"> <div class="slide" data-slide=""> <div class="block" data-block=""></div> </div> <div class="control-area"> <div class="control-area__title">Control Button</div> <div class="control-area__buttons"> <button class="button-common common-button" data-prev="">Prev</button> <button class="button-common common-button" data-pause="">Pause</button> <button class="button-common common-button" data-next="">Next</button> </div> </div> </div> <div class="sourcecode"> <div class="sourcecode__label">code</div> <button class="button-common js-copy sourcecode__copy">copy</button> <pre>
+                                <code class="javascript js-copy-target">
+const slideAnimation = new SlideAnimation({
+    element: block as HTMLElement,
+    easing: 'easeInOutCubic',
+    duration: 1000,
+});
+const halfEvent = function() {
+    // change element contents
+    slideAnimation.element.style.background = red;
+};
+const endEvent = function() {
+    console.log('end!');
+};
+prev.addEventListener(
+    'click',
+    () => {
+        slideAnimation.prev({ halfEvent, endEvent });
+    },
+    false
+);
+                                </code>
+                            </pre> </div> </div> </div> </main> </div> <footer class="footer"> <div class="footer-content"> <p class="footer-content__p">Released under the MIT License</p> <p class="footer-content__p"> Copyright © 2019-2019 <a href="https://github.com/hashiguchip" target="_blank" class="footer-content__p-a">hashiguchip</a> </p> </div> </footer> </div> <div class="js-modal-wrapper modal-wrapper"> <div class="js-modal modal modal-wrapper__content"> <div class="-only modal__title modal-title">Copied !</div> <div class="modal__description modal-description"></div> <div class="modal__footer modal-buttons"> <button class="button-common js-modal-close modal-buttons__close">Close</button> </div> </div> </div> <script src="main.e80678aa.js"></script> </body></html>
